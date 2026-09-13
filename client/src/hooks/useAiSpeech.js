@@ -12,77 +12,171 @@ function useAiSpeech() {
   const aiSpeechRef = useRef(null);
 
   // ========================================================
-  // GET FEMALE VOICE
+  // DETECT QUESTION LANGUAGE
   // ========================================================
 
-  const getFemaleVoice = useCallback(() => {
-    if (!("speechSynthesis" in window)) {
-      return null;
+  const detectLanguage = useCallback((text) => {
+    if (!text) {
+      return "en";
     }
 
-    const voices =
-      window.speechSynthesis.getVoices();
+    // Hindi / Devanagari characters
+    const hasHindiCharacters =
+      /[\u0900-\u097F]/.test(text);
 
-    if (!voices || voices.length === 0) {
-      return null;
+    if (hasHindiCharacters) {
+      return "hi";
     }
 
-    // ------------------------------------------------------
-    // Highest priority:
-    // Female Indian English voices
-    // ------------------------------------------------------
-
-    const indianFemaleVoice =
-      voices.find(
-        (voice) =>
-          voice.lang === "en-IN" &&
-          /female|woman|heera|veena/i.test(
-            voice.name
-          )
-      );
-
-    if (indianFemaleVoice) {
-      return indianFemaleVoice;
-    }
-
-    // ------------------------------------------------------
-    // Known female English voices
-    // ------------------------------------------------------
-
-    const knownFemaleVoice =
-      voices.find(
-        (voice) =>
-          voice.lang.startsWith("en") &&
-          /samantha|karen|zira|moira|female|woman/i.test(
-            voice.name
-          )
-      );
-
-    if (knownFemaleVoice) {
-      return knownFemaleVoice;
-    }
-
-    // ------------------------------------------------------
-    // Some browsers do not include "female" in the name.
-    // Prefer common English voices as fallback.
-    // ------------------------------------------------------
-
-    const englishVoice =
-      voices.find(
-        (voice) =>
-          voice.lang === "en-IN"
-      ) ||
-      voices.find(
-        (voice) =>
-          voice.lang === "en-GB"
-      ) ||
-      voices.find(
-        (voice) =>
-          voice.lang === "en-US"
-      );
-
-    return englishVoice || null;
+    return "en";
   }, []);
+
+  // ========================================================
+  // GET FEMALE HINDI / ENGLISH VOICE
+  // ========================================================
+
+  const getFemaleVoice = useCallback(
+    (language) => {
+      if (!("speechSynthesis" in window)) {
+        return null;
+      }
+
+      const voices =
+        window.speechSynthesis.getVoices();
+
+      if (!voices || voices.length === 0) {
+        return null;
+      }
+
+      // ====================================================
+      // HINDI
+      // ====================================================
+
+      if (language === "hi") {
+        // -----------------------------------------------
+        // First priority: Hindi female voices
+        // -----------------------------------------------
+
+        const hindiFemaleVoice =
+          voices.find(
+            (voice) =>
+              voice.lang === "hi-IN" &&
+              /female|woman|heera|veena/i.test(
+                voice.name
+              )
+          );
+
+        if (hindiFemaleVoice) {
+          return hindiFemaleVoice;
+        }
+
+        // -----------------------------------------------
+        // Any Hindi voice
+        // -----------------------------------------------
+
+        const hindiVoice =
+          voices.find(
+            (voice) =>
+              voice.lang === "hi-IN"
+          );
+
+        if (hindiVoice) {
+          return hindiVoice;
+        }
+
+        // -----------------------------------------------
+        // Hindi-compatible fallback
+        // -----------------------------------------------
+
+        const hindiLanguageVoice =
+          voices.find(
+            (voice) =>
+              voice.lang.startsWith("hi")
+          );
+
+        if (hindiLanguageVoice) {
+          return hindiLanguageVoice;
+        }
+      }
+
+      // ====================================================
+      // ENGLISH
+      // ====================================================
+
+      if (language === "en") {
+        // -----------------------------------------------
+        // First priority: Indian English female voice
+        // -----------------------------------------------
+
+        const indianFemaleVoice =
+          voices.find(
+            (voice) =>
+              voice.lang === "en-IN" &&
+              /female|woman|heera|veena/i.test(
+                voice.name
+              )
+          );
+
+        if (indianFemaleVoice) {
+          return indianFemaleVoice;
+        }
+
+        // -----------------------------------------------
+        // Known English female voices
+        // -----------------------------------------------
+
+        const knownFemaleVoice =
+          voices.find(
+            (voice) =>
+              voice.lang.startsWith("en") &&
+              /samantha|karen|zira|moira|female|woman/i.test(
+                voice.name
+              )
+          );
+
+        if (knownFemaleVoice) {
+          return knownFemaleVoice;
+        }
+
+        // -----------------------------------------------
+        // Any Indian English voice
+        // -----------------------------------------------
+
+        const indianEnglishVoice =
+          voices.find(
+            (voice) =>
+              voice.lang === "en-IN"
+          );
+
+        if (indianEnglishVoice) {
+          return indianEnglishVoice;
+        }
+
+        // -----------------------------------------------
+        // English fallback
+        // -----------------------------------------------
+
+        const englishVoice =
+          voices.find(
+            (voice) =>
+              voice.lang === "en-GB"
+          ) ||
+          voices.find(
+            (voice) =>
+              voice.lang === "en-US"
+          ) ||
+          voices.find(
+            (voice) =>
+              voice.lang.startsWith("en")
+          );
+
+        return englishVoice || null;
+      }
+
+      return null;
+    },
+    []
+  );
 
   // ========================================================
   // STOP AI SPEAKING
@@ -125,7 +219,9 @@ function useAiSpeech() {
         return;
       }
 
-      if (!("speechSynthesis" in window)) {
+      if (
+        !("speechSynthesis" in window)
+      ) {
         console.error(
           "❌ Speech synthesis is NOT supported."
         );
@@ -144,44 +240,75 @@ function useAiSpeech() {
       stopAiSpeaking();
 
       // ----------------------------------------------------
+      // Detect question language
+      // ----------------------------------------------------
+
+      const language =
+        detectLanguage(text);
+
+      console.log(
+        "🌐 Detected language:",
+        language === "hi"
+          ? "Hindi"
+          : "English"
+      );
+
+      // ----------------------------------------------------
       // Create utterance
       // ----------------------------------------------------
 
       const utterance =
-        new SpeechSynthesisUtterance(text);
+        new SpeechSynthesisUtterance(
+          text
+        );
 
-      // ----------------------------------------------------
-      // IMPORTANT:
-      // Voices may not be loaded immediately.
-      // Wait briefly if needed.
-      // ----------------------------------------------------
+      // ====================================================
+      // SPEAK WITH SELECTED VOICE
+      // ====================================================
 
-      const speakWithFemaleVoice = () => {
-        const femaleVoice =
-          getFemaleVoice();
+      const speakWithSelectedVoice = () => {
+        const selectedVoice =
+          getFemaleVoice(language);
 
-        if (femaleVoice) {
+        // --------------------------------------------------
+        // Voice found
+        // --------------------------------------------------
+
+        if (selectedVoice) {
           utterance.voice =
-            femaleVoice;
+            selectedVoice;
 
           utterance.lang =
-            femaleVoice.lang;
+            selectedVoice.lang;
 
           console.log(
             "👩 Selected AI Voice:",
-            femaleVoice.name
+            selectedVoice.name
           );
 
           console.log(
             "🌐 Voice Language:",
-            femaleVoice.lang
+            selectedVoice.lang
           );
-        } else {
-          utterance.lang =
-            "en-IN";
+        }
+
+        // --------------------------------------------------
+        // No matching voice
+        // --------------------------------------------------
+
+        else if (
+          language === "hi"
+        ) {
+          utterance.lang = "hi-IN";
 
           console.warn(
-            "⚠️ No preferred female voice found. Using en-IN voice."
+            "⚠️ Hindi voice not found. Using hi-IN fallback."
+          );
+        } else {
+          utterance.lang = "en-IN";
+
+          console.warn(
+            "⚠️ English female voice not found. Using en-IN fallback."
           );
         }
 
@@ -194,7 +321,7 @@ function useAiSpeech() {
         utterance.volume = 1;
 
         // --------------------------------------------------
-        // Store current utterance
+        // Store utterance
         // --------------------------------------------------
 
         aiSpeechRef.current =
@@ -217,10 +344,6 @@ function useAiSpeech() {
             aiSpeechRef.current !==
             utterance
           ) {
-            console.log(
-              "⚠️ Speech started but utterance is no longer active."
-            );
-
             return;
           }
 
@@ -240,10 +363,6 @@ function useAiSpeech() {
             aiSpeechRef.current !==
             utterance
           ) {
-            console.log(
-              "⚠️ Speech ended but utterance is no longer active."
-            );
-
             return;
           }
 
@@ -264,7 +383,9 @@ function useAiSpeech() {
         // SPEECH ERROR
         // ==================================================
 
-        utterance.onerror = (event) => {
+        utterance.onerror = (
+          event
+        ) => {
           console.error(
             "❌ AI SPEECH ERROR:",
             event?.error
@@ -318,9 +439,9 @@ function useAiSpeech() {
         }
       };
 
-      // ----------------------------------------------------
-      // Voices are already available
-      // ----------------------------------------------------
+      // ====================================================
+      // VOICES ALREADY AVAILABLE
+      // ====================================================
 
       const voices =
         window.speechSynthesis.getVoices();
@@ -329,13 +450,13 @@ function useAiSpeech() {
         voices &&
         voices.length > 0
       ) {
-        speakWithFemaleVoice();
+        speakWithSelectedVoice();
         return;
       }
 
-      // ----------------------------------------------------
-      // Voices not loaded yet
-      // ----------------------------------------------------
+      // ====================================================
+      // WAIT FOR VOICES
+      // ====================================================
 
       console.log(
         "⏳ Waiting for browser voices..."
@@ -343,37 +464,41 @@ function useAiSpeech() {
 
       let handled = false;
 
-      const handleVoicesChanged = () => {
-        if (handled) {
-          return;
-        }
+      const handleVoicesChanged =
+        () => {
+          if (handled) {
+            return;
+          }
 
-        const loadedVoices =
-          window.speechSynthesis.getVoices();
+          const loadedVoices =
+            window.speechSynthesis.getVoices();
 
-        if (
-          !loadedVoices ||
-          loadedVoices.length === 0
-        ) {
-          return;
-        }
+          if (
+            !loadedVoices ||
+            loadedVoices.length === 0
+          ) {
+            return;
+          }
 
-        handled = true;
+          handled = true;
 
-        window.speechSynthesis.removeEventListener(
-          "voiceschanged",
-          handleVoicesChanged
-        );
+          window.speechSynthesis.removeEventListener(
+            "voiceschanged",
+            handleVoicesChanged
+          );
 
-        speakWithFemaleVoice();
-      };
+          speakWithSelectedVoice();
+        };
 
       window.speechSynthesis.addEventListener(
         "voiceschanged",
         handleVoicesChanged
       );
 
+      // ----------------------------------------------------
       // Safety fallback
+      // ----------------------------------------------------
+
       setTimeout(() => {
         if (handled) {
           return;
@@ -386,11 +511,12 @@ function useAiSpeech() {
           handleVoicesChanged
         );
 
-        speakWithFemaleVoice();
+        speakWithSelectedVoice();
       }, 1000);
     },
     [
       aiEnabled,
+      detectLanguage,
       getFemaleVoice,
       stopAiSpeaking,
     ]
@@ -407,7 +533,6 @@ function useAiSpeech() {
       return;
     }
 
-    // Force browser to initialize voices
     window.speechSynthesis.getVoices();
 
     const handleVoicesChanged =
