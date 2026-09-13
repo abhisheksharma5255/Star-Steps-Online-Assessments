@@ -55,21 +55,6 @@ function formatFileSize(bytes) {
 }
 
 // ==========================================================
-// REPLACE QUESTION PLACEHOLDERS
-// ==========================================================
-
-function personalizeQuestion(text, studentName) {
-  if (!text) {
-    return "";
-  }
-
-  return text.replace(
-    /\{name\}/gi,
-    studentName?.trim() || "Candidate"
-  );
-}
-
-// ==========================================================
 // APP
 // ==========================================================
 
@@ -460,19 +445,9 @@ function App() {
       return;
     }
 
-    // ------------------------------------------------------
-    // PERSONALIZE QUESTION WITH STUDENT NAME
-    // ------------------------------------------------------
-
-    const spokenQuestion =
-      personalizeQuestion(
-        currentQuestionText,
-        studentName
-      );
-
     console.log(
       "🎯 Starting AI question:",
-      spokenQuestion
+      currentQuestionText
     );
 
     // ------------------------------------------------------
@@ -482,11 +457,11 @@ function App() {
     const timeoutId = setTimeout(() => {
       console.log(
         "🎤 Speaking AI question:",
-        spokenQuestion
+        currentQuestionText
       );
 
       speakAiQuestion(
-        spokenQuestion,
+        currentQuestionText,
         () => {
           console.log(
             "✅ AI finished speaking. Starting timer."
@@ -515,9 +490,6 @@ function App() {
     page,
     currentInterview,
     currentQuestionIndex,
-    studentName,
-    speakAiQuestion,
-    startQuestionTimer,
   ]);
 
   // ========================================================
