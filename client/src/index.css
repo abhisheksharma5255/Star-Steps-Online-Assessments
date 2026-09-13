@@ -1,0 +1,1177 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+  background: #f3faf6;
+  color: #17352a;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(187, 247, 208, 0.45),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #f4fbf7 0%, #ffffff 55%, #effaf4 100%);
+  padding: 34px 22px 50px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.studentContainer {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      #14532d 0%,
+      #166534 45%,
+      #15803d 100%
+    );
+  color: white;
+  padding: 34px;
+  border-radius: 24px;
+  margin-bottom: 24px;
+  box-shadow:
+    0 18px 45px rgba(22, 101, 52, 0.18),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  right: -80px;
+  top: -110px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: 100px;
+  bottom: -100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.header h1 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.header p {
+  position: relative;
+  z-index: 2;
+  margin: 8px 0 0;
+  color: #dcfce7;
+  font-size: 15px;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigation {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #dcefe3;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(22, 101, 52, 0.05);
+}
+
+.navButton {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #527064;
+  padding: 11px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.navButton:hover {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.navButton.active {
+  background: #166534;
+  color: white;
+  box-shadow: 0 5px 14px rgba(22, 101, 52, 0.18);
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 30px;
+  border: 1px solid #dcefe3;
+  border-radius: 20px;
+  margin-bottom: 22px;
+  box-shadow:
+    0 12px 35px rgba(22, 101, 52, 0.06),
+    0 2px 8px rgba(15, 23, 42, 0.025);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #17352a;
+  font-size: 24px;
+  letter-spacing: -0.3px;
+}
+
+.card h3 {
+  color: #1b4332;
+}
+
+.card label {
+  display: block;
+  font-weight: 700;
+  margin: 20px 0 8px;
+  color: #315b49;
+  font-size: 14px;
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+.textInput {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 50px;
+  padding: 12px 15px;
+  border: 1px solid #cfe3d7;
+  border-radius: 11px;
+  background: #ffffff;
+  color: #17352a;
+  font-size: 15px;
+  line-height: 1.4;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.textInput::placeholder {
+  color: #9aafa4;
+}
+
+.textInput:hover {
+  border-color: #a9ccb7;
+}
+
+.textInput:focus {
+  border-color: #22c55e;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.11);
+}
+
+/* =========================================
+   QUESTIONS
+========================================= */
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.sectionHeader h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.questionRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 12px;
+  background: #f7fcf9;
+  border: 1px solid #e1f0e6;
+  border-radius: 14px;
+}
+
+.questionNumber {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 11px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.questionInput {
+  flex: 1;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primaryButton {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(22, 163, 74, 0.18);
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 11px 24px rgba(22, 163, 74, 0.24);
+}
+
+.darkButton {
+  padding: 11px 17px;
+  border: none;
+  border-radius: 10px;
+  background: #166534;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 700;
+  box-shadow: 0 5px 13px rgba(22, 101, 52, 0.14);
+}
+
+.darkButton:hover {
+  background: #14532d;
+  transform: translateY(-1px);
+}
+
+.deleteButton {
+  flex-shrink: 0;
+  padding: 11px 15px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fff1f2;
+  color: #dc2626;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.deleteButton:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.secondaryButton {
+  padding: 11px 16px;
+  border: 1px solid #cfe3d7;
+  border-radius: 10px;
+  background: white;
+  color: #315b49;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.secondaryButton:hover {
+  background: #f0fdf4;
+  border-color: #9ac7aa;
+  color: #166534;
+}
+
+.fullButton {
+  width: 100%;
+}
+
+/* =========================================
+   TEXT HELPERS
+========================================= */
+
+.muted {
+  color: #6b8277;
+}
+
+.empty {
+  padding: 35px 25px;
+  text-align: center;
+  color: #71877d;
+  background: #f7fcf9;
+  border: 1px dashed #cfe3d7;
+  border-radius: 14px;
+}
+
+/* =========================================
+   INTERVIEW LIST
+========================================= */
+
+.interviewCard {
+  border: 1px solid #dcefe3;
+  padding: 22px;
+  border-radius: 16px;
+  margin-top: 15px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(22, 101, 52, 0.045);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.interviewCard:hover {
+  transform: translateY(-2px);
+  border-color: #b7dcc5;
+  box-shadow: 0 10px 28px rgba(22, 101, 52, 0.08);
+}
+
+.interviewTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.interviewTop h3 {
+  margin: 0 0 8px;
+  color: #17352a;
+  font-size: 19px;
+}
+
+.interviewCard ol {
+  margin-bottom: 0;
+  padding-left: 22px;
+}
+
+.interviewCard li {
+  margin-bottom: 9px;
+  color: #456357;
+}
+
+.badge {
+  height: fit-content;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* =========================================
+   INTERVIEW PAGE
+========================================= */
+
+.interviewPage {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(187, 247, 208, 0.38),
+      transparent 32%
+    ),
+    #f4faf6;
+  color: #17352a;
+  padding: 32px 20px 50px;
+}
+
+.interviewContainer {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.interviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.interviewHeader h1 {
+  margin: 0;
+  color: #17352a;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.interviewHeader p {
+  color: #6b8277;
+  margin: 6px 0 0;
+}
+
+.questionCounter {
+  background: #dcfce7;
+  color: #166534;
+  padding: 10px 15px;
+  border-radius: 10px;
+  white-space: nowrap;
+  font-weight: 800;
+  border: 1px solid #bbf7d0;
+}
+
+/* =========================================
+   INTERVIEW GRID
+========================================= */
+
+.interviewGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* =========================================
+   AI PANEL
+========================================= */
+
+.aiPanel {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #dcefe3;
+  box-shadow:
+    0 12px 35px rgba(22, 101, 52, 0.07),
+    0 2px 8px rgba(15, 23, 42, 0.025);
+}
+
+.aiIcon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dcfce7;
+  border-radius: 17px;
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+.smallText {
+  color: #5e786b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.aiPanel h2 {
+  line-height: 1.4;
+  color: #17352a;
+  font-size: 25px;
+  margin: 8px 0 0;
+}
+
+/* =========================================
+   QUESTION BOX
+========================================= */
+
+.questionBox {
+  background:
+    linear-gradient(
+      135deg,
+      #166534 0%,
+      #15803d 55%,
+      #16a34a 100%
+    );
+  color: white;
+  padding: 25px;
+  border-radius: 17px;
+  font-size: 21px;
+  line-height: 1.6;
+  margin-top: 22px;
+  box-shadow: 0 12px 25px rgba(22, 101, 52, 0.16);
+  position: relative;
+  overflow: hidden;
+}
+
+.questionBox::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -65px;
+  bottom: -80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.voiceInfo {
+  color: #6b8277;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* =========================================
+   VIDEO
+========================================= */
+
+.videoPanel {
+  position: relative;
+  min-height: 0;
+  background: white;
+  color: #17352a;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid #dcefe3;
+  box-shadow:
+    0 12px 35px rgba(22, 101, 52, 0.07),
+    0 2px 8px rgba(15, 23, 42, 0.025);
+  overflow: visible;
+}
+
+.videoPanel video {
+  display: block;
+  width: 100%;
+  height: 380px;
+  min-height: 0;
+  object-fit: cover;
+  background: #edf7f0;
+  border-radius: 15px;
+  border: 1px solid #dcefe3;
+}
+
+.cameraMessage {
+  position: absolute;
+  inset: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #82978d;
+  pointer-events: none;
+  border-radius: 15px;
+}
+
+.cameraMessage div {
+  font-size: 50px;
+  margin-bottom: 8px;
+}
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.controls {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100%;
+  gap: 11px;
+  margin-top: 17px;
+  position: relative;
+  z-index: 10;
+}
+
+.cameraButton {
+  width: auto;
+  margin: 0;
+}
+
+.activeCamera {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #166534;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.activeCamera:hover {
+  background: #14532d;
+}
+
+.exitButton {
+  padding: 13px 20px;
+  border: 1px solid #cfe3d7;
+  border-radius: 10px;
+  background: white;
+  color: #166534;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.exitButton:hover {
+  background: #f0fdf4;
+  border-color: #a9ccb7;
+}
+
+/* =========================================
+   COUNTER
+========================================= */
+
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #166534;
+  background: #dcfce7;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+}
+
+.counter:hover {
+  border-color: #86efac;
+}
+
+.counter:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   OLD VITE STARTER STYLES
+   Kept harmlessly for compatibility
+========================================= */
+
+.hero {
+  position: relative;
+}
+
+.hero .base,
+.hero .framework,
+.hero .vite {
+  inset-inline: 0;
+  margin: 0 auto;
+}
+
+.hero .base {
+  width: 170px;
+  position: relative;
+  z-index: 0;
+}
+
+.hero .framework,
+.hero .vite {
+  position: absolute;
+}
+
+.hero .framework {
+  z-index: 1;
+  top: 34px;
+  height: 28px;
+  transform:
+    perspective(2000px)
+    rotateZ(300deg)
+    rotateX(44deg)
+    rotateY(39deg)
+    scale(1.4);
+}
+
+.hero .vite {
+  z-index: 0;
+  top: 107px;
+  height: 26px;
+  width: auto;
+  transform:
+    perspective(2000px)
+    rotateZ(300deg)
+    rotateX(40deg)
+    rotateY(39deg)
+    scale(0.8);
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid #dcefe3;
+  text-align: left;
+}
+
+#next-steps > div {
+  flex: 1 1 0;
+  padding: 32px;
+}
+
+#next-steps .icon {
+  margin-bottom: 16px;
+  width: 22px;
+  height: 22px;
+}
+
+#docs {
+  border-right: 1px solid #dcefe3;
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+}
+
+#next-steps ul .logo {
+  height: 18px;
+}
+
+#next-steps ul a {
+  color: #315b49;
+  font-size: 16px;
+  border-radius: 6px;
+  background: #f0fdf4;
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+}
+
+#next-steps ul a:hover {
+  box-shadow: 0 5px 15px rgba(22, 101, 52, 0.08);
+}
+
+#next-steps ul a .button-icon {
+  height: 18px;
+  width: 18px;
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid #dcefe3;
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+}
+
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  top: -4.5px;
+  border: 5px solid transparent;
+}
+
+.ticks::before {
+  left: 0;
+  border-left-color: #dcefe3;
+}
+
+.ticks::after {
+  right: 0;
+  border-right-color: #dcefe3;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+  .interviewGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .videoPanel video {
+    height: 420px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 15px;
+  }
+
+  .interviewPage {
+    padding: 20px 15px 35px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .header {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .header h1 {
+    font-size: 23px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .navButton {
+    width: 100%;
+  }
+
+  .sectionHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .questionRow {
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .questionNumber {
+    width: 36px;
+    height: 36px;
+  }
+
+  .questionRow .textInput {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .deleteButton {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .interviewHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .questionCounter {
+    width: 100%;
+    text-align: center;
+  }
+
+  .aiPanel {
+    padding: 22px;
+  }
+
+  .aiPanel h2 {
+    font-size: 22px;
+  }
+
+  .questionBox {
+    font-size: 19px;
+    padding: 20px;
+  }
+
+  .videoPanel {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .videoPanel video {
+    height: 300px;
+    border-radius: 12px;
+  }
+
+  .cameraMessage {
+    inset: 14px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .cameraButton,
+  .exitButton {
+    width: 100%;
+  }
+
+  #next-steps {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #next-steps > div {
+    padding: 24px 20px;
+  }
+
+  #docs {
+    border-right: none;
+    border-bottom: 1px solid #dcefe3;
+  }
+
+  #next-steps ul {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #next-steps ul li {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  #next-steps ul a {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  #spacer {
+    height: 48px;
+  }
+}
+
+
+
+/* =========================================================
+   STAR STEPS - RESPONSIVE FOUNDATION
+   STEP 1
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+/* Prevent elements from becoming wider than screen */
+
+img,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+/* Make form elements responsive */
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   STAR STEPS - STUDENT PAGE RESPONSIVE
+   STEP 2
+========================================================= */
+
+.page {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  padding-left: clamp(10px, 3vw, 22px);
+  padding-right: clamp(10px, 3vw, 22px);
+  overflow-x: hidden;
+}
+
+.studentContainer {
+  width: 100%;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Student header */
+
+.studentContainer .header {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Main student card */
+
+.studentContainer .card {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+/* Inputs */
+
+.studentContainer .textInput {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Start Interview button */
+
+.studentContainer .fullButton {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .page {
+    padding: 12px 10px 25px;
+  }
+
+  .studentContainer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .studentContainer .header {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .studentContainer .header h1 {
+    font-size: 22px;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .studentContainer .header p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .studentContainer .card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .studentContainer .textInput {
+    width: 100%;
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .studentContainer .fullButton {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+  .page {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .studentContainer .header {
+    padding: 18px 14px;
+  }
+
+  .studentContainer .header h1 {
+    font-size: 20px;
+  }
+
+  .studentContainer .card {
+    padding: 18px 14px;
+  }
+}

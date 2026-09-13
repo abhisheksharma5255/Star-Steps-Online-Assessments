@@ -1,0 +1,1474 @@
+/* =========================================================
+   STAR STEPS
+   AI INTERVIEW PANEL
+   Green + White Professional UI
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.interviewPage {
+  min-height: 100vh;
+  width: 100%;
+  padding: 24px;
+  background: #f4f8fc;
+  color: #172033;
+  overflow-x: hidden;
+}
+
+.interviewContainer {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.interviewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  width: 100%;
+
+  padding: 18px 22px;
+  margin-bottom: 15px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eaf3;
+  border-radius: 18px;
+
+  box-shadow:
+    0 6px 22px rgba(16, 71, 120, 0.06);
+}
+
+.interviewBrand h1 {
+  margin: 0;
+
+  color: #168348;
+
+  font-size: 23px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+.interviewBrand span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.interviewStatus {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background: #edf9f2;
+  color: #168348;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.interviewStatus::before {
+  content: "";
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #19a957;
+}
+
+/* =========================================================
+   STUDENT INFO
+========================================================= */
+
+.studentInfo {
+  width: 100%;
+
+  padding: 16px 20px;
+  margin-bottom: 15px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #168348,
+    #19a957
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 25px rgba(22, 131, 72, 0.14);
+}
+
+.studentInfo h2 {
+  margin: 0 0 4px;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.studentInfo p {
+  margin: 0;
+
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.questionProgress {
+  width: 100%;
+
+  padding: 14px 17px;
+  margin-bottom: 15px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eaf3;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 18px rgba(16, 71, 120, 0.05);
+}
+
+.questionProgressTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-bottom: 8px;
+}
+
+.questionProgressTop span {
+  color: #334155;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.questionProgressBar {
+  width: 100%;
+  height: 6px;
+
+  overflow: hidden;
+
+  background: #e8eef5;
+  border-radius: 20px;
+}
+
+.questionProgressFill {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #168348,
+    #19a957
+  );
+
+  border-radius: inherit;
+
+  transition: width 0.3s ease;
+}
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+.interviewMainGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(360px, 0.82fr);
+
+  gap: 18px;
+
+  width: 100%;
+
+  align-items: start;
+}
+
+.interviewLeftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================================
+   AI CARD
+========================================================= */
+
+.aiInterviewerCard {
+  width: 100%;
+  min-width: 0;
+
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce8f3;
+  border-radius: 20px;
+
+  box-shadow:
+    0 9px 30px rgba(22, 131, 72, 0.07);
+}
+
+.aiInterviewerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+
+  border-bottom: 1px solid #edf2f7;
+}
+
+.aiInterviewerTitle {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  min-width: 0;
+}
+
+.aiAvatar {
+  width: 54px;
+  height: 54px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #168348,
+    #19a957
+  );
+
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 16px rgba(22, 131, 72, 0.2);
+
+  transition: 0.25s ease;
+}
+
+.aiAvatarSpeaking {
+  box-shadow:
+    0 0 0 5px rgba(25, 169, 87, 0.12),
+    0 7px 22px rgba(22, 131, 72, 0.25);
+
+  transform: scale(1.03);
+}
+
+.aiInterviewerTitle h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.aiInterviewerTitle span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.aiStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  flex: 0 0 auto;
+
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #edf9f2;
+  color: #168348;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.aiStatus::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  background: #19a957;
+}
+
+/* =========================================================
+   AI SPEAKING
+========================================================= */
+
+.aiSpeakingArea {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  margin-bottom: 12px;
+
+  border-radius: 12px;
+
+  background: #f8fbfe;
+
+  border: 1px solid #e4edf5;
+}
+
+.aiSpeakingText {
+  color: #64748b;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.aiSpeakingArea.speaking {
+  background: #f1faf5;
+  border-color: #d3ebdc;
+}
+
+.aiSpeakingArea.speaking .aiSpeakingText {
+  color: #168348;
+  font-weight: 700;
+}
+
+.aiWaveContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  height: 22px;
+
+  margin-top: 9px;
+}
+
+.aiWave {
+  width: 4px;
+  height: 8px;
+
+  border-radius: 4px;
+
+  background: #19a957;
+
+  animation: aiWave 0.8s infinite ease-in-out;
+}
+
+.aiWave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.aiWave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.aiWave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.aiWave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes aiWave {
+  0%,
+  100% {
+    height: 7px;
+  }
+
+  50% {
+    height: 20px;
+  }
+}
+
+/* =========================================================
+   ASK QUESTION
+========================================================= */
+
+.askQuestionAgain {
+  width: 100%;
+
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #cfe8d9;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #168348;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.askQuestionAgain:hover {
+  background: #f1faf5;
+  border-color: #a9d8ba;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   QUESTION CARD
+========================================================= */
+
+.questionCard {
+  width: 100%;
+  min-width: 0;
+
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce8f3;
+  border-radius: 20px;
+
+  box-shadow:
+    0 9px 30px rgba(22, 131, 72, 0.06);
+}
+
+.questionCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 11px;
+}
+
+.questionNumber {
+  color: #168348;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.timeBadge {
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: #edf9f2;
+  color: #168348;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   QUESTION BOX
+========================================================= */
+
+.questionBox {
+  position: relative;
+
+  width: 100%;
+
+  padding: 17px 17px 17px 21px;
+
+  margin-bottom: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #f4fbf7,
+    #edf9f2
+  );
+
+  border: 1px solid #d5ebdd;
+  border-radius: 14px;
+}
+
+.questionBox::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 15px;
+  bottom: 15px;
+
+  width: 4px;
+
+  background: #19a957;
+
+  border-radius: 0 5px 5px 0;
+}
+
+.questionBox h3 {
+  margin: 0;
+  padding-left: 4px;
+
+  color: #172033;
+
+  font-size: 17px;
+  line-height: 1.45;
+
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   RECORD NOTICE
+========================================================= */
+
+.recordNotice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+
+  padding: 10px 12px;
+
+  background: #f8fbfe;
+
+  border: 1px solid #e3edf5;
+  border-radius: 10px;
+
+  color: #64748b;
+
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.recordNoticeIcon {
+  font-size: 15px;
+}
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+.questionTimer {
+  width: 100%;
+
+  margin-top: 12px;
+  padding: 12px;
+
+  border-radius: 11px;
+
+  background: #edf9f2;
+
+  color: #168348;
+}
+
+.questionTimer.danger {
+  background: #fff0f0;
+  color: #d92323;
+}
+
+.timerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  text-align: center;
+}
+
+.timerIcon {
+  font-size: 18px;
+}
+
+.timerContent strong {
+  display: block;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.timerContent p {
+  margin: 2px 0 0;
+
+  font-size: 9px;
+
+  opacity: 0.75;
+}
+
+/* =========================================================
+   CAMERA CARD
+========================================================= */
+
+.cameraCard {
+  width: 100%;
+  min-width: 0;
+
+  padding: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce8f3;
+  border-radius: 20px;
+
+  box-shadow:
+    0 9px 30px rgba(22, 131, 72, 0.07);
+}
+
+.cameraCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 13px;
+}
+
+.cameraEyebrow {
+  margin-bottom: 3px;
+
+  color: #168348;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.cameraCardHeader h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.cameraCardHeader p {
+  margin: 3px 0 0;
+
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+.cameraReady {
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #edf9f2;
+  color: #168348;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.cameraReady.recordingBadge {
+  background: #fff0f0;
+  color: #d92323;
+}
+
+/* =========================================================
+   CAMERA PREVIEW
+========================================================= */
+
+.cameraPreviewWrapper {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #0c1724;
+
+  border: 3px solid #e9f1f8;
+  border-radius: 16px;
+
+  box-shadow:
+    0 7px 22px rgba(15, 35, 55, 0.12);
+}
+
+.cameraPreview {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  background: #0c1724;
+}
+
+.cameraOverlay {
+  position: absolute;
+
+  top: 11px;
+  left: 11px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 9px;
+
+  background: rgba(8, 22, 36, 0.75);
+
+  color: #ffffff;
+
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  backdrop-filter: blur(8px);
+}
+
+.cameraOverlay span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #19a957;
+
+  animation: recordingPulse 1.2s infinite;
+}
+
+@keyframes recordingPulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   EMPTY CAMERA
+========================================================= */
+
+.emptyState {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.emptyIcon {
+  margin-bottom: 8px;
+
+  font-size: 28px;
+}
+
+.emptyState strong {
+  font-size: 13px;
+}
+
+.emptyState p {
+  max-width: 240px;
+
+  margin: 5px 0 0;
+
+  color: #aebdcb;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   RECORDING SECTION
+========================================================= */
+
+.recordingSection {
+  width: 100%;
+
+  margin-top: 13px;
+  padding: 14px;
+
+  background: #f8fbfe;
+
+  border: 1px solid #e0eaf2;
+  border-radius: 13px;
+}
+
+.recordingSection.recordingActive {
+  background: #fff5f5;
+  border-color: #ffd4d4;
+}
+
+.recordingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.recordingEyebrow {
+  margin-bottom: 3px;
+
+  color: #168348;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.recordingActive .recordingEyebrow {
+  color: #d92323;
+}
+
+.recordingSection h3 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.recordingSection p {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.recordingTimer {
+  padding: 7px 10px;
+
+  background: #fff0f0;
+  color: #d92323;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.startAnswerButton,
+.stopRecordingButton,
+.nextQuestionButton,
+.exitInterviewButton {
+  width: 100%;
+
+  min-height: 46px;
+
+  margin-top: 11px;
+
+  border-radius: 10px;
+
+  background-color: red;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.startAnswerButton,
+.nextQuestionButton {
+  border: none;
+
+  background: linear-gradient(
+    135deg,
+    #168348,
+    #19a957
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 18px rgba(22, 131, 72, 0.18);
+}
+
+.startAnswerButton:hover,
+.nextQuestionButton:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 22px rgba(22, 131, 72, 0.24);
+}
+
+.stopRecordingButton {
+  border: 1px solid #f1caca;
+
+  background: #fff5f5;
+
+  color: #d92323;
+}
+
+.stopRecordingButton:hover {
+  background: #ffeded;
+}
+
+.exitInterviewButton {
+  border: 1px solid #d5e1eb;
+
+  background: #c13f3f;
+
+  color: #ececec;
+}
+
+.exitInterviewButton:hover {
+  background: #f7fafc;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .interviewPage {
+    padding: 14px;
+  }
+
+  .interviewContainer {
+    max-width: none;
+    width: 100%;
+  }
+
+  .interviewMainGrid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .interviewLeftColumn {
+    width: 100%;
+  }
+
+  .cameraPreviewWrapper {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  /*
+    IMPORTANT:
+    Full available mobile width.
+    Only a very small outer gap is kept.
+  */
+
+  .interviewPage {
+    width: 100%;
+    min-width: 0;
+
+    padding: 6px;
+
+    overflow-x: hidden;
+  }
+
+  .interviewContainer {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* =====================================================
+     HEADER
+  ===================================================== */
+
+  .interviewHeader {
+    width: 100%;
+
+    padding: 13px 12px;
+
+    margin: 0 0 8px;
+
+    border-radius: 14px;
+  }
+
+  .interviewBrand {
+    min-width: 0;
+  }
+
+  .interviewBrand h1 {
+    font-size: 19px;
+  }
+
+  .interviewBrand span {
+    font-size: 9px;
+  }
+
+  .interviewStatus {
+    flex: 0 0 auto;
+
+    padding: 6px 9px;
+
+    font-size: 9px;
+  }
+
+  /* =====================================================
+     STUDENT
+  ===================================================== */
+
+  .studentInfo {
+    width: 100%;
+
+    padding: 14px 13px;
+
+    margin-bottom: 8px;
+
+    border-radius: 13px;
+  }
+
+  .studentInfo h2 {
+    font-size: 14px;
+  }
+
+  .studentInfo p {
+    font-size: 10px;
+  }
+
+  /* =====================================================
+     PROGRESS
+  ===================================================== */
+
+  .questionProgress {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    margin-bottom: 8px;
+
+    border-radius: 12px;
+  }
+
+  .questionProgressTop span {
+    font-size: 10px;
+  }
+
+  /* =====================================================
+     MAIN MOBILE LAYOUT
+  ===================================================== */
+
+  .interviewMainGrid {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+    max-width: none;
+
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+    IMPORTANT:
+    Do NOT use display: contents here.
+    It can create width/alignment problems
+    on different mobile browsers.
+  */
+
+  .interviewLeftColumn {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+    max-width: none;
+
+    min-width: 0;
+
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* =====================================================
+     CARDS
+  ===================================================== */
+
+  .aiInterviewerCard,
+  .questionCard,
+  .cameraCard {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+
+    margin: 0;
+
+    padding: 16px;
+
+    border-radius: 16px;
+  }
+
+  /* =====================================================
+     AGENT DIVA
+  ===================================================== */
+
+  .aiInterviewerHeader {
+    width: 100%;
+
+    padding-bottom: 12px;
+
+    margin-bottom: 12px;
+  }
+
+  .aiInterviewerTitle {
+    min-width: 0;
+
+    gap: 10px;
+  }
+
+  .aiAvatar {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 14px;
+
+    font-size: 16px;
+  }
+
+  .aiInterviewerTitle h2 {
+    font-size: 16px;
+  }
+
+  .aiInterviewerTitle span {
+    font-size: 9px;
+  }
+
+  .aiStatus {
+    padding: 6px 9px;
+
+    font-size: 8px;
+  }
+
+  .aiSpeakingArea {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+  }
+
+  .aiSpeakingText {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .askQuestionAgain {
+    width: 100%;
+
+    min-height: 44px;
+
+    font-size: 11px;
+  }
+
+  /* =====================================================
+     QUESTION
+  ===================================================== */
+
+  .questionCardTop {
+    width: 100%;
+
+    margin-bottom: 10px;
+  }
+
+  .questionNumber {
+    font-size: 9px;
+  }
+
+  .timeBadge {
+    padding: 5px 9px;
+
+    font-size: 9px;
+  }
+
+  .questionBox {
+    width: 100%;
+
+    padding: 15px 14px 15px 18px;
+
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+  }
+
+  .questionBox::before {
+    top: 12px;
+    bottom: 12px;
+
+    width: 3px;
+  }
+
+  .questionBox h3 {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .recordNotice {
+    width: 100%;
+
+    padding: 10px;
+
+    font-size: 9px;
+  }
+
+  .questionTimer {
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 11px;
+  }
+
+  .timerContent {
+    gap: 8px;
+  }
+
+  .timerIcon {
+    font-size: 16px;
+  }
+
+  .timerContent strong {
+    font-size: 15px;
+  }
+
+  .timerContent p {
+    font-size: 8px;
+  }
+
+  /* =====================================================
+     CAMERA
+  ===================================================== */
+
+  .cameraCardHeader {
+    width: 100%;
+
+    margin-bottom: 10px;
+  }
+
+  .cameraEyebrow {
+    font-size: 8px;
+  }
+
+  .cameraCardHeader h2 {
+    font-size: 16px;
+  }
+
+  .cameraCardHeader p {
+    font-size: 9px;
+  }
+
+  .cameraReady {
+    padding: 6px 9px;
+
+    font-size: 8px;
+  }
+
+  .cameraPreviewWrapper {
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    border-radius: 13px;
+  }
+
+  .cameraOverlay {
+    top: 8px;
+    left: 8px;
+
+    padding: 5px 8px;
+
+    font-size: 8px;
+  }
+
+  /* =====================================================
+     RECORDING
+  ===================================================== */
+
+  .recordingSection {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    border-radius: 11px;
+  }
+
+  .recordingEyebrow {
+    font-size: 8px;
+  }
+
+  .recordingSection h3 {
+    font-size: 13px;
+  }
+
+  .recordingSection p {
+    font-size: 9px;
+  }
+
+  .recordingTimer {
+    padding: 6px 8px;
+
+    font-size: 12px;
+  }
+
+  /* =====================================================
+     BUTTONS
+  ===================================================== */
+
+  .startAnswerButton,
+  .stopRecordingButton,
+  .nextQuestionButton,
+  .exitInterviewButton {
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-top: 9px;
+
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .interviewPage {
+    padding: 5px;
+  }
+
+  .interviewHeader {
+    padding: 12px 10px;
+  }
+
+  .interviewMainGrid,
+  .interviewLeftColumn {
+    gap: 7px;
+  }
+
+  .aiInterviewerCard,
+  .questionCard,
+  .cameraCard {
+    width: 100%;
+
+    padding: 14px;
+  }
+
+  .aiAvatar {
+    width: 46px;
+    height: 46px;
+  }
+
+  .aiInterviewerTitle h2 {
+    font-size: 15px;
+  }
+
+  .aiStatus {
+    padding: 5px 7px;
+
+    font-size: 7px;
+  }
+
+  .questionBox h3 {
+    font-size: 14px;
+  }
+
+  .cameraPreviewWrapper {
+    aspect-ratio: 4 / 3;
+  }
+}

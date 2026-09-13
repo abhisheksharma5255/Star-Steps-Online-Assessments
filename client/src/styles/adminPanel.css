@@ -1,0 +1,1514 @@
+/* =========================================================
+   ADMIN PANEL
+   Star Steps Online Assessments
+========================================================= */
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+.adminPage {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  background: #f8fcf9;
+}
+
+.adminLoginContainer {
+  width: 100%;
+  max-width: 560px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.adminLoginCard {
+  width: 100%;
+
+  padding: 34px;
+
+  background: #ffffff;
+
+  border: 1px solid #dcebe2;
+  border-radius: 20px;
+
+  box-shadow:
+    0 18px 50px rgba(20, 83, 45, 0.10);
+}
+
+
+/* =========================================================
+   LOGIN HEADER
+========================================================= */
+
+.adminLoginHeader {
+  text-align: center;
+
+  margin-bottom: 28px;
+}
+
+.adminLoginHeader h1 {
+  margin: 0;
+
+  color: #14532d;
+
+  font-size: 30px;
+  line-height: 1.15;
+
+  font-weight: 900;
+}
+
+.adminLoginHeader p {
+  margin: 8px 0 0;
+
+  color: #71877d;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   LOGIN TITLE
+========================================================= */
+
+.adminLoginCard h2 {
+  margin: 0 0 22px;
+
+  color: #14532d;
+
+  font-size: 25px;
+  line-height: 1.2;
+
+  font-weight: 850;
+}
+
+
+/* =========================================================
+   LOGIN FORM
+========================================================= */
+
+.adminLoginCard form {
+  width: 100%;
+}
+
+.adminLoginCard .formGroup {
+  margin-bottom: 18px;
+}
+
+.adminLoginCard .formGroup label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #527064;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.adminLoginCard .formGroup input {
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid #dcebe2;
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #294d3b;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.adminLoginCard .formGroup input::placeholder {
+  color: #9aac9f;
+}
+
+.adminLoginCard .formGroup input:focus {
+  border-color: #16a34a;
+
+  box-shadow:
+    0 0 0 3px rgba(22, 163, 74, 0.10);
+}
+
+
+/* =========================================================
+   LOGIN ERROR
+========================================================= */
+
+.adminError {
+  margin: 14px 0;
+
+  padding: 11px 13px;
+
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+
+  background: #fff7f7;
+
+  color: #b91c1c;
+
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.adminLoginButton {
+  width: 100%;
+
+  min-height: 48px;
+
+  margin-top: 8px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #16a34a,
+    #15803d
+  );
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(22, 163, 74, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.adminLoginButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 12px 25px rgba(22, 163, 74, 0.24);
+}
+
+.adminLoginButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.adminLoginButton:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   ADMIN HEADER
+========================================================= */
+
+.adminHeader {
+  margin-bottom: 24px;
+}
+
+.adminHeaderContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.adminBadge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 11px;
+
+  margin-bottom: 10px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.adminTitle {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 30px;
+  line-height: 1.15;
+
+  font-weight: 900;
+}
+
+.adminDescription {
+  margin: 9px 0 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.logoutButton {
+  flex-shrink: 0;
+
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.10);
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.logoutButton:hover {
+  background: rgba(255, 255, 255, 0.18);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.statsGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.statCard {
+  min-width: 0;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #dcebe2;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 8px 24px rgba(20, 83, 45, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 30px rgba(20, 83, 45, 0.08);
+}
+
+.statLabel {
+  margin-bottom: 9px;
+
+  color: #71877d;
+
+  font-size: 11px;
+  line-height: 1.3;
+
+  font-weight: 800;
+
+  letter-spacing: 0.07em;
+}
+
+.statValue {
+  color: #14532d;
+
+  font-size: 31px;
+  line-height: 1;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   ADMIN CARDS
+========================================================= */
+
+.adminPanel .card {
+  margin-bottom: 24px;
+}
+
+.page > .container > .card {
+  margin-bottom: 24px;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 22px;
+}
+
+.sectionHeader > div:first-child {
+  min-width: 0;
+}
+
+.sectionTitle {
+  color: #14532d;
+}
+
+.sectionDescription {
+  max-width: 680px;
+}
+
+
+/* =========================================================
+   UNLIMITED BADGE
+========================================================= */
+
+.unlimitedBadge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 34px;
+
+  padding: 0 12px;
+
+  border-radius: 999px;
+
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+
+  color: #166534;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   QUESTION EDITOR
+========================================================= */
+
+.questionRow {
+  width: 100%;
+
+  margin-bottom: 15px;
+  padding: 19px;
+
+  border: 1px solid #dcebe2;
+  border-radius: 16px;
+
+  background: #fbfefc;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.questionRow:hover {
+  border-color: #b7ddc3;
+
+  box-shadow:
+    0 6px 18px rgba(20, 83, 45, 0.04);
+}
+
+.questionRowTop {
+  display: grid;
+
+  grid-template-columns:
+    auto minmax(0, 1fr) auto;
+
+  align-items: end;
+
+  gap: 15px;
+}
+
+.questionNumber {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #dcfce7;
+  color: #15803d;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.questionField {
+  min-width: 0;
+}
+
+.questionLabel {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #527064;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.questionTime {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 14px;
+  padding-top: 14px;
+
+  border-top: 1px solid #e7f0ea;
+}
+
+.questionTime .textInput {
+  width: auto;
+  min-width: 145px;
+}
+
+.questionTimeLabel {
+  flex-shrink: 0;
+
+  color: #527064;
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.questionTime > span:last-child {
+  color: #71877d;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.deleteButton {
+  min-height: 42px;
+
+  padding: 0 14px;
+
+  border: 1px solid #fecaca;
+  border-radius: 11px;
+
+  background: #fff7f7;
+
+  color: #b91c1c;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.deleteButton:hover {
+  background: #fef2f2;
+  border-color: #fca5a5;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   INTERVIEW CARDS
+========================================================= */
+
+.interviewCard {
+  width: 100%;
+
+  margin-bottom: 16px;
+  padding: 21px;
+
+  border: 1px solid #dcebe2;
+  border-radius: 17px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 20px rgba(20, 83, 45, 0.035);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.interviewCard:last-child {
+  margin-bottom: 0;
+}
+
+.interviewCard:hover {
+  border-color: #b7ddc3;
+
+  box-shadow:
+    0 10px 28px rgba(20, 83, 45, 0.07);
+}
+
+.interviewHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 18px;
+}
+
+.interviewHeader > div {
+  min-width: 0;
+}
+
+.assessmentBadge {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 6px;
+
+  color: #15803d;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.08em;
+}
+
+.interviewTitle {
+  margin: 0 0 5px;
+
+  color: #14532d;
+
+  font-size: 19px;
+  line-height: 1.3;
+
+  font-weight: 850;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   QUESTION LIST
+========================================================= */
+
+.questionList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.questionItem {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-width: 0;
+
+  padding: 13px 14px;
+
+  border: 1px solid #e4eee8;
+  border-radius: 12px;
+
+  background: #fbfefc;
+}
+
+.questionItemNumber {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #f0fdf4;
+
+  color: #15803d;
+
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.questionItemText {
+  min-width: 0;
+  flex: 1;
+
+  color: #294d3b;
+
+  font-size: 13px;
+  line-height: 1.55;
+
+  overflow-wrap: anywhere;
+}
+
+.timeBadge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 30px;
+
+  padding: 0 9px;
+
+  border-radius: 999px;
+
+  background: #f0fdf4;
+
+  color: #166534;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   STUDENT SUBMISSION
+========================================================= */
+
+.submissionStudentInfo {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  min-width: 0;
+}
+
+.submissionStudentInfo > div:last-child {
+  min-width: 0;
+}
+
+.submissionStudentInfo h3 {
+  margin: 0 0 3px;
+
+  color: #14532d;
+
+  font-size: 17px;
+  line-height: 1.3;
+
+  font-weight: 850;
+
+  overflow-wrap: anywhere;
+}
+
+.submissionStudentInfo p {
+  margin: 3px 0;
+
+  overflow-wrap: anywhere;
+}
+
+.studentAvatar {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #dcfce7;
+
+  color: #15803d;
+
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.answerCountBadge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 34px;
+
+  padding: 0 12px;
+
+  border-radius: 999px;
+
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+
+  color: #166534;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.submissionActions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-left: auto;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-end;
+}
+
+.submissionActions .primaryButton,
+.submissionActions .secondaryButton,
+.submissionActions .deleteButton {
+  min-height: 38px;
+}
+
+.submissionFooterActions {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 15px;
+  padding-top: 15px;
+
+  border-top: 1px solid #e7f0ea;
+
+  flex-wrap: wrap;
+}
+
+.submissionFooterActions > * {
+  flex: 1 1 auto;
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modalOverlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background:
+    rgba(11, 35, 23, 0.58);
+
+  backdrop-filter: blur(6px);
+
+  overflow-y: auto;
+}
+
+.modalCard {
+  width: 100%;
+  max-width: 850px;
+
+  max-height: calc(100vh - 48px);
+
+  overflow-y: auto;
+
+  padding: 26px;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #dcebe2;
+
+  box-shadow:
+    0 25px 70px rgba(10, 40, 25, 0.20);
+}
+
+.modalCard .sectionHeader {
+  position: sticky;
+
+  top: -26px;
+
+  z-index: 2;
+
+  margin: -26px -26px 22px;
+
+  padding: 22px 26px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(8px);
+
+  border-bottom: 1px solid #e7f0ea;
+}
+
+.modalCard .questionItem {
+  margin-bottom: 10px;
+}
+
+.modalActions {
+  display: flex;
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 20px;
+  padding-top: 18px;
+
+  border-top: 1px solid #e7f0ea;
+
+  flex-wrap: wrap;
+}
+
+.answerMeta {
+  margin-top: 18px;
+  padding: 15px 16px;
+
+  border-radius: 13px;
+
+  background: #f8fcf9;
+
+  border: 1px solid #e4eee8;
+}
+
+.answerMeta p {
+  margin: 5px 0;
+
+  color: #527064;
+
+  font-size: 12px;
+
+  overflow-wrap: anywhere;
+}
+
+.answerMeta strong {
+  color: #294d3b;
+}
+
+
+/* =========================================================
+   VIDEO PREVIEW
+========================================================= */
+
+.videoPreview {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  max-height: 520px;
+
+  margin-top: 15px;
+
+  border-radius: 15px;
+
+  background: #07150e;
+
+  border: 1px solid #dcebe2;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   BUTTON ALIGNMENT
+========================================================= */
+
+.adminLoginPage .primaryButton {
+  margin-top: 22px;
+}
+
+.interviewCard > .questionItem {
+  margin-bottom: 9px;
+}
+
+
+/* =========================================================
+   DISABLED STATES
+========================================================= */
+
+.deleteButton:disabled,
+.logoutButton:disabled,
+.secondaryButton:disabled,
+.primaryButton:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .adminPage {
+    padding: 30px 16px;
+  }
+
+  .statsGrid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+  .statCard {
+    padding: 18px;
+  }
+
+  .statValue {
+    font-size: 27px;
+  }
+
+  .adminTitle {
+    font-size: 27px;
+  }
+
+  .questionRowTop {
+    grid-template-columns:
+      auto minmax(0, 1fr);
+
+    align-items: start;
+  }
+
+  .questionRowTop .deleteButton {
+    grid-column: 2;
+
+    justify-self: start;
+  }
+
+  .questionTime {
+    flex-wrap: wrap;
+  }
+
+  .questionTime .textInput {
+    flex: 1 1 150px;
+  }
+
+  .submissionActions {
+    margin-left: 0;
+
+    justify-content: flex-start;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .adminPage {
+    min-height: 100dvh;
+
+    align-items: flex-start;
+
+    padding:
+      22px
+      10px
+      20px;
+  }
+
+  .adminLoginContainer {
+    max-width: none;
+  }
+
+  .adminLoginCard {
+    padding: 23px 18px;
+  }
+
+  .adminLoginHeader {
+    margin-bottom: 22px;
+  }
+
+  .adminLoginHeader h1 {
+    font-size: 25px;
+  }
+
+  .adminLoginHeader p {
+    font-size: 13px;
+  }
+
+  .adminLoginCard h2 {
+    font-size: 22px;
+  }
+
+  .adminLoginCard .formGroup input {
+    min-height: 50px;
+  }
+
+  .adminLoginButton {
+    min-height: 50px;
+  }
+
+
+  /* ADMIN HEADER */
+
+  .adminHeaderContent {
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 17px;
+  }
+
+  .adminTitle {
+    font-size: 24px;
+  }
+
+  .adminDescription {
+    font-size: 13px;
+  }
+
+  .logoutButton {
+    width: 100%;
+  }
+
+
+  /* STATS */
+
+  .statsGrid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+  .statCard {
+    padding: 14px 10px;
+
+    border-radius: 13px;
+
+    text-align: center;
+  }
+
+  .statLabel {
+    font-size: 8px;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.03em;
+  }
+
+  .statValue {
+    font-size: 23px;
+  }
+
+
+  /* SECTION */
+
+  .sectionHeader {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 13px;
+  }
+
+  .sectionHeader > .secondaryButton,
+  .sectionHeader > .unlimitedBadge {
+    align-self: flex-start;
+  }
+
+  .unlimitedBadge {
+    font-size: 10px;
+  }
+
+
+  /* QUESTIONS */
+
+  .questionRow {
+    padding: 15px;
+
+    border-radius: 14px;
+  }
+
+  .questionRowTop {
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+  }
+
+  .questionNumber {
+    width: 38px;
+    height: 38px;
+  }
+
+  .questionRowTop .deleteButton {
+    grid-column: auto;
+
+    width: 100%;
+  }
+
+  .questionTime {
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .questionTime .textInput {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .questionTime > span:last-child {
+    display: none;
+  }
+
+
+  /* INTERVIEW CARDS */
+
+  .interviewCard {
+    padding: 16px;
+
+    border-radius: 15px;
+  }
+
+  .interviewHeader {
+    flex-direction: column;
+
+    gap: 13px;
+  }
+
+  .interviewHeader > .deleteButton,
+  .interviewHeader > .answerCountBadge {
+    align-self: flex-start;
+  }
+
+  .interviewTitle {
+    font-size: 17px;
+  }
+
+
+  /* QUESTION ITEMS */
+
+  .questionItem {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    padding: 12px;
+
+    gap: 9px;
+  }
+
+  .questionItemNumber {
+    width: 28px;
+    height: 28px;
+  }
+
+  .questionItemText {
+    flex: 1 1 calc(100% - 42px);
+  }
+
+  .questionItem .timeBadge {
+    margin-left: 37px;
+  }
+
+
+  /* SUBMISSIONS */
+
+  .submissionStudentInfo {
+    width: 100%;
+
+    align-items: flex-start;
+  }
+
+  .studentAvatar {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 13px;
+  }
+
+  .answerCountBadge {
+    align-self: flex-start;
+  }
+
+  .submissionActions {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      1fr;
+
+    gap: 8px;
+  }
+
+  .submissionActions .primaryButton,
+  .submissionActions .secondaryButton,
+  .submissionActions .deleteButton {
+    width: 100%;
+  }
+
+  .submissionFooterActions {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+  .submissionFooterActions > * {
+    width: 100%;
+  }
+
+
+  /* MODAL */
+
+  .modalOverlay {
+    align-items: flex-start;
+
+    padding:
+      10px;
+  }
+
+  .modalCard {
+    max-height:
+      calc(100dvh - 20px);
+
+    padding: 18px;
+
+    border-radius: 17px;
+  }
+
+  .modalCard .sectionHeader {
+    position: sticky;
+
+    top: -18px;
+
+    margin:
+      -18px
+      -18px
+      18px;
+
+    padding:
+      16px
+      18px;
+  }
+
+  .modalActions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .modalActions > * {
+    width: 100%;
+  }
+
+  .videoPreview {
+    max-height: 55vh;
+
+    border-radius: 12px;
+  }
+
+
+  /* INPUTS */
+
+  .adminLoginCard input {
+    min-height: 50px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .adminPage {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .adminLoginCard {
+    padding:
+      20px
+      15px;
+  }
+
+  .adminLoginHeader h1 {
+    font-size: 23px;
+  }
+
+  .statsGrid {
+    gap: 6px;
+  }
+
+  .statCard {
+    padding:
+      13px
+      7px;
+  }
+
+  .statLabel {
+    font-size: 7px;
+  }
+
+  .statValue {
+    font-size: 21px;
+  }
+
+  .interviewCard {
+    padding: 14px;
+  }
+
+  .questionRow {
+    padding: 13px;
+  }
+}
+
+
+/* =========================================================
+   OVERFLOW PROTECTION
+========================================================= */
+
+.adminPage,
+.adminLoginContainer,
+.adminLoginCard,
+.adminLoginHeader,
+.adminHeader,
+.adminHeaderContent,
+.statsGrid,
+.statCard,
+.questionRow,
+.questionRowTop,
+.questionField,
+.questionTime,
+.interviewCard,
+.interviewHeader,
+.questionList,
+.questionItem,
+.questionItemText,
+.submissionStudentInfo,
+.submissionActions,
+.submissionFooterActions,
+.modalOverlay,
+.modalCard {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.adminPage *,
+.adminLoginContainer *,
+.adminLoginCard *,
+.adminHeader *,
+.statsGrid *,
+.questionRow *,
+.interviewCard *,
+.modalCard * {
+  max-width: 100%;
+}
+
+.adminPage input,
+.adminPage select,
+.adminPage button,
+.questionRow input,
+.questionRow select,
+.interviewCard button,
+.modalCard button {
+  max-width: 100%;
+}
+

@@ -1,0 +1,375 @@
+/* =========================================================
+   STUDENT PANEL
+   Star Steps Online Assessments
+========================================================= */
+
+.studentContainer {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   STUDENT WELCOME
+========================================================= */
+
+.studentWelcome {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid #e4eee8;
+}
+
+.studentWelcomeIcon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+
+  font-size: 24px;
+}
+
+
+/* =========================================================
+   STUDENT FORM
+========================================================= */
+
+.studentContainer .card {
+  padding: 30px;
+}
+
+.studentContainer label {
+  display: block;
+
+  margin: 0 0 8px;
+
+  color: #527064;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.02em;
+}
+
+.studentContainer label:not(:first-of-type) {
+  margin-top: 20px;
+}
+
+.studentContainer .textInput {
+  width: 100%;
+  min-height: 50px;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.studentContainer select.textInput {
+  appearance: auto;
+
+  cursor: pointer;
+
+  background-color: #ffffff;
+}
+
+
+/* =========================================================
+   SELECTED INTERVIEW
+========================================================= */
+
+.studentContainer .selectedInterview {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 18px;
+  padding: 15px 16px;
+
+  background: #f0fdf4;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 13px;
+}
+
+.selectedInterviewIcon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #dcfce7;
+
+  color: #15803d;
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.selectedInterviewContent {
+  min-width: 0;
+}
+
+.selectedInterviewLabel {
+  margin-bottom: 3px;
+
+  color: #527064;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.07em;
+}
+
+.selectedInterviewTitle {
+  color: #166534;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   START BUTTON
+========================================================= */
+
+.studentContainer .fullButton {
+  width: 100%;
+}
+
+.studentStartButton {
+  min-height: 54px;
+
+  margin-top: 25px;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   REQUIREMENTS
+========================================================= */
+
+.studentRequirements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+  margin-top: 20px;
+  padding-top: 18px;
+
+  border-top: 1px solid #e1f0e6;
+
+  color: #71877d;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.studentRequirement {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   FOOTER NOTE
+========================================================= */
+
+.studentFooterNote {
+  padding:
+    5px
+    10px
+    20px;
+
+  text-align: center;
+
+  color: #82978d;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+  .studentContainer {
+    width: 100%;
+
+    max-width: none;
+  }
+
+  .studentContainer .card {
+    padding:
+      23px
+      17px;
+  }
+
+  .studentWelcome {
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 23px;
+    padding-bottom: 19px;
+  }
+
+  .studentWelcomeIcon {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 13px;
+
+    font-size: 21px;
+  }
+
+  .studentWelcome h2 {
+    font-size: 22px !important;
+  }
+
+  .studentWelcome p {
+    font-size: 13px !important;
+
+    line-height: 1.5;
+  }
+
+  .studentContainer label {
+    font-size: 11px;
+  }
+
+  .studentContainer label:not(:first-of-type) {
+    margin-top: 18px;
+  }
+
+  .studentContainer .textInput {
+    min-height: 52px;
+
+    font-size: 15px;
+  }
+
+  .studentContainer .selectedInterview {
+    padding: 14px;
+  }
+
+  .studentStartButton {
+    min-height: 56px;
+
+    font-size: 16px;
+  }
+
+  .studentRequirements {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-top: 18px;
+    padding-top: 16px;
+  }
+
+  .studentRequirement {
+    width: 100%;
+  }
+
+  .studentFooterNote {
+    padding:
+      5px
+      8px
+      18px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .studentContainer .card {
+    padding:
+      20px
+      14px;
+  }
+
+  .studentWelcome {
+    gap: 10px;
+  }
+
+  .studentWelcomeIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .studentWelcome h2 {
+    font-size: 20px !important;
+  }
+
+  .studentContainer .textInput {
+    min-height: 50px;
+  }
+
+  .studentStartButton {
+    min-height: 54px;
+  }
+}
+
+
+/* =========================================================
+   OVERFLOW PROTECTION
+========================================================= */
+
+.studentContainer,
+.studentContainer *,
+.studentWelcome,
+.studentWelcome > div,
+.selectedInterviewContent {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.studentContainer input,
+.studentContainer select,
+.studentContainer button {
+  max-width: 100%;
+}
