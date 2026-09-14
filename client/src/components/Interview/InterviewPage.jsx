@@ -434,7 +434,7 @@ function InterviewPage({
                   {currentQuestionIndex <
                   total - 1
                     ? "Next Question →"
-                    : "Finish Interview ✓"}
+                    : "Finish Assessment ✓"}
                 </button>
               )}
 
@@ -449,7 +449,7 @@ function InterviewPage({
                     exitInterview
                   }
                 >
-                  Exit Interview
+                  Exit Assessment
                 </button>
               )}
 

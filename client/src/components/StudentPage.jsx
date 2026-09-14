@@ -223,7 +223,7 @@ function StudentPage({
             className="primaryButton fullButton studentStartButton"
             onClick={startStudentInterview}
           >
-            Start Interview
+            Start   Assessment
 
             <span
               style={{

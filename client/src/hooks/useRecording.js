@@ -13,6 +13,7 @@ function useRecording({
   onUploadSuccess,
 }) {
   const [isRecording, setIsRecording] = useState(false);
+
   const [recordingSeconds, setRecordingSeconds] =
     useState(0);
 
@@ -25,11 +26,12 @@ function useRecording({
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
   const timerRef = useRef(null);
+
   const autoSubmitRef = useRef(false);
 
-  // =========================
+  // ========================================================
   // RECORDING TIMER
-  // =========================
+  // ========================================================
 
   useEffect(() => {
     clearInterval(timerRef.current);
@@ -49,9 +51,9 @@ function useRecording({
     };
   }, [isRecording]);
 
-  // =========================
+  // ========================================================
   // START RECORDING
-  // =========================
+  // ========================================================
 
   function startRecording() {
     if (!cameraStream) {
@@ -60,6 +62,10 @@ function useRecording({
     }
 
     if (!currentInterview) {
+      return;
+    }
+
+    if (isRecording) {
       return;
     }
 
@@ -117,6 +123,19 @@ function useRecording({
         }
       );
 
+      // Safety check:
+      // Do not upload an empty recording.
+      if (!blob.size) {
+        console.warn(
+          "Recording stopped but no video data was captured."
+        );
+
+        recordedChunksRef.current = [];
+        autoSubmitRef.current = false;
+
+        return;
+      }
+
       const videoUrl =
         URL.createObjectURL(blob);
 
@@ -130,6 +149,9 @@ function useRecording({
       const wasAutomatic =
         autoSubmitRef.current;
 
+      // Reset after reading the value.
+      autoSubmitRef.current = false;
+
       await uploadAnswerVideo(
         blob,
         questionIndexAtStart,
@@ -139,6 +161,7 @@ function useRecording({
 
     mediaRecorderRef.current = recorder;
 
+    // New manual recording starts normally.
     autoSubmitRef.current = false;
 
     setRecordingSeconds(0);
@@ -150,9 +173,9 @@ function useRecording({
     setIsRecording(true);
   }
 
-  // =========================
+  // ========================================================
   // UPLOAD ANSWER VIDEO
-  // =========================
+  // ========================================================
 
   async function uploadAnswerVideo(
     blob,
@@ -236,7 +259,17 @@ function useRecording({
         onUploadSuccess();
       }
 
-      if (automaticSubmit) {
+      // ====================================================
+      // AUTOMATIC TIME-UP
+      //
+      // Only after the video has successfully uploaded,
+      // move to the next question.
+      // ====================================================
+
+      if (
+        automaticSubmit &&
+        onAutomaticSubmit
+      ) {
         await onAutomaticSubmit(
           questionIndex
         );
@@ -253,21 +286,24 @@ function useRecording({
     }
   }
 
-  // =========================
+  // ========================================================
   // STOP RECORDING
-  // =========================
+  // ========================================================
 
   function stopRecording(automatic = false) {
     clearInterval(timerRef.current);
 
-    setIsRecording(false);
+    timerRef.current = null;
 
-    if (automatic) {
-      // The parent question timer will
-      // handle the time-up state.
-    } else {
-      autoSubmitRef.current = false;
-    }
+    // ======================================================
+    // IMPORTANT:
+    // Remember whether this stop happened because the
+    // question timer expired.
+    // ======================================================
+
+    autoSubmitRef.current = automatic;
+
+    setIsRecording(false);
 
     if (
       mediaRecorderRef.current &&
@@ -278,9 +314,9 @@ function useRecording({
     }
   }
 
-  // =========================
+  // ========================================================
   // CLEANUP
-  // =========================
+  // ========================================================
 
   useEffect(() => {
     return () => {
@@ -289,22 +325,30 @@ function useRecording({
       if (
         mediaRecorderRef.current &&
         mediaRecorderRef.current.state !==
-          "inactive"
+        "inactive"
       ) {
         mediaRecorderRef.current.stop();
       }
     };
   }, []);
 
+  // ========================================================
+  // RETURN
+  // ========================================================
+
   return {
     isRecording,
     recordingSeconds,
+
     recordedVideos,
     setRecordedVideos,
+
     currentVideoUrl,
     setCurrentVideoUrl,
+
     startRecording,
     stopRecording,
+
     autoSubmitRef,
   };
 }

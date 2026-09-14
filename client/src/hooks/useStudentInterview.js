@@ -143,10 +143,7 @@ function useStudentInterview({
         return;
       }
 
-      // ================================================
-      // TIMER CAN ONLY START ONCE FOR THIS QUESTION
-      // ================================================
-
+      // Timer can only start once for this question.
       if (
         timerStartedQuestionRef.current ===
         questionIndex
@@ -214,7 +211,7 @@ function useStudentInterview({
   );
 
   // ========================================================
-  // AUTOMATIC SUBMIT
+  // AUTOMATIC TIME-UP HANDLER
   // ========================================================
 
   useEffect(() => {
@@ -225,6 +222,7 @@ function useStudentInterview({
       return;
     }
 
+    // Prevent duplicate time-up handling.
     if (autoSubmitRef.current) {
       return;
     }
@@ -233,13 +231,36 @@ function useStudentInterview({
 
     setTimeUp(true);
 
-    if (isRecording) {
+    // ======================================================
+    // CASE 1:
+    // STUDENT IS CURRENTLY RECORDING
+    //
+    // Stop recording.
+    // useRecording will upload the video and then call
+    // moveToNextQuestionAfterAutoSubmit().
+    // ======================================================
+
+    if (isRecordingRef.current) {
       stopRecording(true);
+      return;
     }
+
+    // ======================================================
+    // CASE 2:
+    // STUDENT NEVER STARTED RECORDING
+    //
+    // No video exists.
+    // Do NOT create/upload an empty video.
+    // Simply move to the next question.
+    // ======================================================
+
+    moveToNextQuestionAfterAutoSubmit(
+      currentQuestionIndex
+    );
   }, [
     timeRemaining,
     currentInterview,
-    isRecording,
+    currentQuestionIndex,
     stopRecording,
     autoSubmitRef,
   ]);
@@ -258,6 +279,10 @@ function useStudentInterview({
     const total =
       currentInterview.questions.length;
 
+    // ======================================================
+    // MORE QUESTIONS AVAILABLE
+    // ======================================================
+
     if (questionIndex < total - 1) {
       if (questionTimerRef.current) {
         clearInterval(
@@ -271,7 +296,7 @@ function useStudentInterview({
       setTimeRemaining(null);
       setTimeUp(false);
 
-      // Allow timer to start for new question
+      // Allow timer to start for new question.
       timerStartedQuestionRef.current = null;
 
       autoSubmitRef.current = false;
@@ -284,6 +309,10 @@ function useStudentInterview({
 
       return;
     }
+
+    // ======================================================
+    // LAST QUESTION COMPLETED
+    // ======================================================
 
     if (questionTimerRef.current) {
       clearInterval(
@@ -357,7 +386,7 @@ function useStudentInterview({
     setTimeRemaining(null);
     setTimeUp(false);
 
-    // New question is allowed to start its timer
+    // New question is allowed to start its timer.
     timerStartedQuestionRef.current = null;
 
     autoSubmitRef.current = false;
@@ -374,6 +403,10 @@ function useStudentInterview({
 
       return;
     }
+
+    // ======================================================
+    // FINISH INTERVIEW
+    // ======================================================
 
     alert("Interview completed!");
 
