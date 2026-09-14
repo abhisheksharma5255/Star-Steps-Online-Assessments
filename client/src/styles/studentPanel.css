@@ -373,3 +373,297 @@
 .studentContainer button {
   max-width: 100%;
 }
+
+
+
+/* =========================================================
+   ASSESSMENT INSTRUCTIONS POPUP
+========================================================= */
+
+.instructionsOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(6px);
+}
+
+.instructionsModal {
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+  border-radius: 20px;
+
+  padding: 28px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+
+  animation: instructionsModalIn 0.2s ease-out;
+}
+
+@keyframes instructionsModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.instructionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 20px;
+
+  margin-bottom: 20px;
+}
+
+.instructionsIcon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #eff6ff;
+
+  font-size: 24px;
+
+  margin-bottom: 12px;
+}
+
+.instructionsHeader h2 {
+  margin: 0 0 6px;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  color: #111827;
+}
+
+.instructionsHeader p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #6b7280;
+}
+
+.instructionsClose {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #f3f4f6;
+
+  color: #374151;
+
+  font-size: 25px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.instructionsClose:hover {
+  background: #e5e7eb;
+}
+
+.instructionsAssessment {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  padding: 14px 16px;
+
+  margin-bottom: 20px;
+
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+
+  background: #eff6ff;
+}
+
+.instructionsAssessment span {
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  color: #2563eb;
+}
+
+.instructionsAssessment strong {
+  font-size: 15px;
+
+  color: #111827;
+}
+
+.instructionsList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+.instructionItem {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 13px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+.instructionItem > span {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #f3f4f6;
+
+  font-size: 17px;
+}
+
+.instructionItem strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 14px;
+  color: #111827;
+}
+
+.instructionItem p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.45;
+
+  color: #6b7280;
+}
+
+.instructionsCheckbox {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  padding: 13px 14px;
+
+  border-radius: 10px;
+
+  background: #f9fafb;
+
+  cursor: pointer;
+}
+
+.instructionsCheckbox input {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  margin-top: 1px;
+
+  cursor: pointer;
+}
+
+.instructionsCheckbox span {
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  color: #374151;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .instructionsOverlay {
+    padding: 12px;
+  }
+
+  .instructionsModal {
+    max-height: 94vh;
+
+    padding: 20px;
+
+    border-radius: 16px;
+  }
+
+  .instructionsHeader h2 {
+    font-size: 20px;
+  }
+
+  .instructionsHeader p {
+    font-size: 13px;
+  }
+
+  .instructionItem {
+    padding: 11px;
+  }
+
+  .instructionItem strong {
+    font-size: 13px;
+  }
+
+  .instructionItem p {
+    font-size: 12px;
+  }
+
+  .instructionsAssessment {
+    padding: 12px;
+  }
+}
