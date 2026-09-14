@@ -73,7 +73,7 @@ function useStudentInterview({
     }
 
     if (!selectedInterview) {
-      alert("Please select an interview.");
+      alert("Please select an assesment.");
       return;
     }
 

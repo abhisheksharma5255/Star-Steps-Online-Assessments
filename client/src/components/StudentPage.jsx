@@ -47,7 +47,7 @@ function StudentPage({
             <h1>Star Steps Online Assessments</h1>
 
             <p>
-              Complete your interview with confidence.
+              Complete your Assessment with confidence.
             </p>
           </div>
         </header>
@@ -147,7 +147,7 @@ function StudentPage({
             }
           >
             <option value="">
-              Select an interview
+              Select an assessment
             </option>
 
             {interviews.map((interview) => (
